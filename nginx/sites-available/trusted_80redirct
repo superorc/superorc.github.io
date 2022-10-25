@@ -1,0 +1,15 @@
+server {
+	listen			146.185.186.184:80;
+	server_name		mironov.ninja;
+	return			301	https://mironov.ninja$request_uri;
+}
+
+
+#server {
+#        listen          146.185.186.184:80;
+#        server_name     artbone.ru;
+#        index index.html index.htm main.html;
+#        location / {
+#        root /srv/www_bestcompany;
+#        }
+#}

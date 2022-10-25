@@ -1,0 +1,26 @@
+server {
+	listen 146.185.186.184:443;
+	server_name mironov.ninja;
+
+	index index.html index.htm;
+
+	ssl on;
+	ssl_certificate /etc/letsencrypt/live/mironov.ninja/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/mironov.ninja/privkey.pem;
+
+	ssl_session_timeout 5m;
+    
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+	ssl_prefer_server_ciphers on;
+
+	location / {
+		#root /srv/www_trusted;
+		root /srv/new_web;
+	}
+
+    location /vagrant_boxes {
+        root /srv/www_trusted;
+        autoindex on;
+    }
+}
